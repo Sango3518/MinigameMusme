@@ -26,16 +26,22 @@ async def on_message(message):
     if S1 == 0:
       if message.content == "Play":
         S1 = 1
-        T = random.uniform(2,4)
+        T = random.uniform(2,5)
         await asyncio.sleep(T)
         await message.channel.send("！")
         S1 = 2
-        await asyncio.sleep(0.5)
-        S1 = 0
-        await message.channel.send("敗北")
+        await asyncio.sleep(0.4)
+        await message.channel.send("M")
+        if S1 == 2:
+          S1 = 3
+        if S1 == 3:
+          await message.channel.send("敗北")
+          S1 = 0
     if S1 == 2:
       if message.content == "M":
-        await message.channel.send("勝利！")
+        if S1 == 2:
+          S1 = 0
+          await message.channel.send("勝利！")
      
 #Discordbotを指定して実行
 client.run(os.getenv('TOKEN'))

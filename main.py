@@ -26,7 +26,6 @@ s8 = 0
 s9 = 0
 s10 = 0
 s11 = 0
-H = 0
 
 # 初期化
 client = discord.Client(intents = discord.Intents.all())

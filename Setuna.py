@@ -22,9 +22,9 @@ S1 = 0
 @client.event
 async def on_message(message):
   if not message.author.bot:
+    global S1
     if S1 == 0:
       if message.content == "Play":
-        global S1
         S1 = 1
         T = random.uniform(2,4)
         await asyncio.sleep(T)
